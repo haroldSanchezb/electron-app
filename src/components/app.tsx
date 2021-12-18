@@ -1,9 +1,11 @@
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import { Helmet } from 'react-helmet';
 import config from '../../config';
+import { AuthProvider } from '../storages/auth';
+import Login from './login';
 
 const darkTheme = createTheme({
   palette: {
@@ -19,6 +21,9 @@ const App: FC = () => (
         <Helmet>
           <title>{config.title}</title>
         </Helmet>
+        <AuthProvider>
+          <Login />
+        </AuthProvider>
       </Container>
     </ThemeProvider>
   </ Fragment>
